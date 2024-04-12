@@ -5,12 +5,16 @@ import './index.css'
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 import NotFound from './pages/errors/NotFound.jsx'
 import LoginPage from './pages/auth/LoginPage.jsx'
+import DashboardPage from './pages/DashboardPage.jsx'
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
-    errorElement: <NotFound />
+    errorElement: <NotFound />,
+    children: [
+      { path: "/", element: <DashboardPage /> }
+    ]
   },
   {
     path: "/login",
