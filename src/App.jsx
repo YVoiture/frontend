@@ -1,6 +1,7 @@
 import { useState } from "react"
 import Navbar from "./components/Navbar"
 import Sidebar from "./components/Sidebar"
+import { Outlet } from "react-router-dom";
 
 function App() {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
@@ -13,7 +14,9 @@ function App() {
     <div className="antialiased bg-gray-50 dark:bg-gray-900">
       <Navbar toggleDrawer={toggleDrawer} isDrawerOpen={isDrawerOpen} />
       <Sidebar toggleDrawer={toggleDrawer} isDrawerOpen={isDrawerOpen} />
-      <main className="p-4 md:ml-64 h-auto pt-20"></main>
+      <main className="p-4 md:ml-64 h-auto pt-20">
+        <Outlet />
+      </main>
     </div>
   )
 }
