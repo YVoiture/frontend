@@ -6,6 +6,8 @@ import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 import NotFound from './pages/errors/NotFound.jsx'
 import LoginPage from './pages/auth/LoginPage.jsx'
 import DashboardPage from './pages/DashboardPage.jsx'
+import RolesPage from './pages/RolesPage.jsx'
+import UsersPage from './pages/UsersPage.jsx'
 
 const router = createBrowserRouter([
   {
@@ -13,7 +15,9 @@ const router = createBrowserRouter([
     element: <App />,
     errorElement: <NotFound />,
     children: [
-      { path: "/", element: <DashboardPage /> }
+      { path: "/", element: <DashboardPage /> },
+      { path: "/roles", element: <RolesPage /> },
+      { path: "/users", element: <UsersPage /> }
     ]
   },
   {
