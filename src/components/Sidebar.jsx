@@ -32,6 +32,25 @@ function Sidebar({ isDrawerOpen }) {
                     </li>
                 </ul>
                 <div className="pt-5 pl-2 mt-5 mb-4 text-sm font-medium text-gray-500 uppercase border-t border-gray-200 dark:text-gray-400 dark:border-gray-700">
+                    Gestion
+                </div>
+                <ul className="space-y-2">
+                    <li>
+                        <NavLink
+                                to="/cars"
+                                className={({ isActive }) =>
+                                    `flex items-center p-2 text-base font-medium rounded-lg
+                                    ${isActive ? 'bg-gray-100 dark:bg-gray-700 text-gray-900 dark:text-white' : 'text-gray-900 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700'}`
+                                }
+                            >
+                            <svg className="w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                <path fillRule="evenodd" d="M4 4a1 1 0 0 1 1-1h1.5a1 1 0 0 1 .979.796L7.939 6H19a1 1 0 0 1 .979 1.204l-1.25 6a1 1 0 0 1-.979.796H9.605l.208 1H17a3 3 0 1 1-2.83 2h-2.34a3 3 0 1 1-4.009-1.76L5.686 5H5a1 1 0 0 1-1-1Z" clipRule="evenodd"/>
+                            </svg>
+                            <span className="ml-3">Voitures</span>
+                        </NavLink>
+                    </li>
+                </ul>
+                <div className="pt-5 pl-2 mt-5 mb-4 text-sm font-medium text-gray-500 uppercase border-t border-gray-200 dark:text-gray-400 dark:border-gray-700">
                     Administration
                 </div>
                 <ul className="space-y-2">

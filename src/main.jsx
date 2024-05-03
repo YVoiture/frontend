@@ -8,6 +8,7 @@ import LoginPage from './pages/auth/LoginPage.jsx'
 import DashboardPage from './pages/DashboardPage.jsx'
 import RolesPage from './pages/RolesPage.jsx'
 import UsersPage from './pages/UsersPage.jsx'
+import CarsPage from './pages/CarsPage.jsx'
 
 const router = createBrowserRouter([
   {
@@ -16,6 +17,7 @@ const router = createBrowserRouter([
     errorElement: <NotFound />,
     children: [
       { path: "/", element: <DashboardPage /> },
+      { path: "/cars", element: <CarsPage /> },
       { path: "/roles", element: <RolesPage /> },
       { path: "/users", element: <UsersPage /> }
     ]
