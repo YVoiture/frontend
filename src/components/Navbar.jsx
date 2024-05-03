@@ -1,11 +1,7 @@
-import { useState } from "react";
+import useToggle from '../utils/hooks/useToggle';
 
 function Navbar({ toggleDrawer, isDrawerOpen }) {
-    const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-
-    const toggleDropdown = () => {
-        setIsDropdownOpen(!isDropdownOpen);
-    }
+    const { isOpen, toggle, ref } = useToggle();
 
     return (
         <nav className="bg-white border-b border-gray-200 px-4 py-2.5 dark:bg-gray-800 dark:border-gray-700 fixed left-0 right-0 top-0 z-50">
@@ -56,9 +52,9 @@ function Navbar({ toggleDrawer, isDrawerOpen }) {
                         <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">YVoiture</span>
                     </a>
                 </div>
-                <div className="relative flex items-center lg:order-2">
+                <div ref={ref} className="relative flex items-center lg:order-2">
                     <button
-                        onClick={toggleDropdown}
+                        onClick={toggle}
                         className="flex mx-3 text-sm bg-gray-800 rounded-full md:mr-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600"
                         id="user-menu-button"
                         aria-expanded="false"
@@ -71,7 +67,7 @@ function Navbar({ toggleDrawer, isDrawerOpen }) {
                             alt="user photo"
                         />
                     </button>
-                    { isDropdownOpen && (
+                    { isOpen && (
                         <div
                             className="absolute right-0 top-7 mt-2 w-56 text-base list-none bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600"
                             id="dropdown"
