@@ -11,6 +11,7 @@ import UsersPage from './pages/UsersPage.jsx'
 import CarsPage from './pages/CarsPage.jsx'
 import MaintenancesPage from './pages/MaintenancesPage.jsx'
 import ProfilePage from './pages/auth/ProfilePage.jsx'
+import SupliersPage from './pages/SuppliersPage.jsx'
 
 const router = createBrowserRouter([
   {
@@ -21,6 +22,7 @@ const router = createBrowserRouter([
       { path: "/", element: <DashboardPage /> },
       { path: "/cars", element: <CarsPage /> },
       { path: "/maintenances", element: <MaintenancesPage /> },
+      { path: "/suppliers", element: <SupliersPage /> },
       { path: "/roles", element: <RolesPage /> },
       { path: "/users", element: <UsersPage /> },
       { path: "/profile", element: <ProfilePage /> }

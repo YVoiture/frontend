@@ -61,6 +61,19 @@ function Sidebar({ isDrawerOpen }) {
                                 </svg>
                             <span className="ml-3">Maintenances</span>
                         </NavLink>
+                        <NavLink
+                                to="/suppliers"
+                                className={({ isActive }) =>
+                                    `flex items-center p-2 text-base font-medium rounded-lg
+                                    ${isActive ? 'bg-gray-100 dark:bg-gray-700 text-gray-900 dark:text-white' : 'text-gray-900 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700'}`
+                                }
+                            >
+                                <svg className="w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fillRule="evenodd" d="M20 10H4v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8ZM9 13v-1h6v1a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1Z" clipRule="evenodd"/>
+                                    <path d="M2 6a2 2 0 0 1 2-2h16a2 2 0 1 1 0 4H4a2 2 0 0 1-2-2Z"/>
+                                </svg>
+                            <span className="ml-3">Fournisseurs</span>
+                        </NavLink>
                     </li>
                 </ul>
                 <div className="pt-5 pl-2 mt-5 mb-4 text-sm font-medium text-gray-500 uppercase border-t border-gray-200 dark:text-gray-400 dark:border-gray-700">
