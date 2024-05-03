@@ -9,6 +9,7 @@ import DashboardPage from './pages/DashboardPage.jsx'
 import RolesPage from './pages/RolesPage.jsx'
 import UsersPage from './pages/UsersPage.jsx'
 import CarsPage from './pages/CarsPage.jsx'
+import MaintenancesPage from './pages/MaintenancesPage.jsx'
 
 const router = createBrowserRouter([
   {
@@ -18,6 +19,7 @@ const router = createBrowserRouter([
     children: [
       { path: "/", element: <DashboardPage /> },
       { path: "/cars", element: <CarsPage /> },
+      { path: "/maintenances", element: <MaintenancesPage /> },
       { path: "/roles", element: <RolesPage /> },
       { path: "/users", element: <UsersPage /> }
     ]
