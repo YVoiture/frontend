@@ -8,12 +8,13 @@ import LoginPage from './pages/auth/LoginPage.jsx'
 import DashboardPage from './pages/DashboardPage.jsx'
 import RolesPage from './pages/roles/RolesPage.jsx'
 import CreateRole from './pages/roles/CreateRole.jsx'
-import UsersPage from './pages/UsersPage.jsx'
+import UsersPage from './pages/users/UsersPage.jsx'
 import CarsPage from './pages/cars/CarsPage.jsx'
 import MaintenancesPage from './pages/MaintenancesPage.jsx'
 import ProfilePage from './pages/auth/ProfilePage.jsx'
 import SupliersPage from './pages/SuppliersPage.jsx'
 import ConsumablesPage from './pages/ConsumablesPage.jsx'
+import CreateUser from './pages/users/CreateUser.jsx'
 
 const router = createBrowserRouter([
   {
@@ -33,7 +34,13 @@ const router = createBrowserRouter([
           { path: "create", element: <CreateRole />},
         ]
       },
-      { path: "/users", element: <UsersPage /> },
+      { 
+        path: "/users",
+        children: [
+          { path: "", element: <UsersPage /> },
+          { path: "create", element: <CreateUser /> },
+        ]
+      },
       { path: "/profile", element: <ProfilePage /> }
     ]
   },
