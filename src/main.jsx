@@ -16,6 +16,7 @@ import SupliersPage from './pages/suppliers/SuppliersPage.jsx'
 import ConsumablesPage from './pages/ConsumablesPage.jsx'
 import CreateUser from './pages/users/CreateUser.jsx'
 import CreateSupplier from './pages/suppliers/CreateSupplier.jsx'
+import CreateCar from './pages/cars/CreateCar.jsx'
 
 const router = createBrowserRouter([
   {
@@ -24,7 +25,13 @@ const router = createBrowserRouter([
     errorElement: <NotFound />,
     children: [
       { path: "/", element: <DashboardPage /> },
-      { path: "/cars", element: <CarsPage /> },
+      {
+        path: "/cars",
+        children: [
+          { path: "", element: <CarsPage /> },
+          { path: "create", element: <CreateCar /> },
+        ]
+      },
       { path: "/maintenances", element: <MaintenancesPage /> },
       { 
         path: "/suppliers",
