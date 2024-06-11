@@ -6,9 +6,10 @@ import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 import NotFound from './pages/errors/NotFound.jsx'
 import LoginPage from './pages/auth/LoginPage.jsx'
 import DashboardPage from './pages/DashboardPage.jsx'
-import RolesPage from './pages/RolesPage.jsx'
+import RolesPage from './pages/roles/RolesPage.jsx'
+import CreateRole from './pages/roles/CreateRole.jsx'
 import UsersPage from './pages/UsersPage.jsx'
-import CarsPage from './pages/CarsPage.jsx'
+import CarsPage from './pages/cars/CarsPage.jsx'
 import MaintenancesPage from './pages/MaintenancesPage.jsx'
 import ProfilePage from './pages/auth/ProfilePage.jsx'
 import SupliersPage from './pages/SuppliersPage.jsx'
@@ -25,7 +26,13 @@ const router = createBrowserRouter([
       { path: "/maintenances", element: <MaintenancesPage /> },
       { path: "/suppliers", element: <SupliersPage /> },
       { path: "/consumables", element: <ConsumablesPage /> },
-      { path: "/roles", element: <RolesPage /> },
+      { 
+        path: "/roles",
+        children: [
+          { path: "", element: <RolesPage /> },
+          { path: "create", element: <CreateRole />},
+        ]
+      },
       { path: "/users", element: <UsersPage /> },
       { path: "/profile", element: <ProfilePage /> }
     ]
