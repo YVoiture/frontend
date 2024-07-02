@@ -26,7 +26,7 @@ const CarsPage = () => {
         };
 
         fetchCars();
-    })
+    }, [])
 
     return (
         <>

@@ -17,7 +17,7 @@ const SupliersPage = () => {
                     type: supplier.type,
                     address: supplier.adress,
                     email: supplier.email,
-                    phone: '0' + supplier.number
+                    phone: supplier.number
                 }));
 
                 setSuppliers(filteredData);
@@ -27,7 +27,7 @@ const SupliersPage = () => {
         };
 
         fetchSuppliers();
-    })
+    }, []);
 
     return (
         <>
