@@ -13,9 +13,10 @@ import CarsPage from './pages/cars/CarsPage.jsx'
 import MaintenancesPage from './pages/MaintenancesPage.jsx'
 import ProfilePage from './pages/auth/ProfilePage.jsx'
 import SupliersPage from './pages/suppliers/SuppliersPage.jsx'
-import ConsumablesPage from './pages/ConsumablesPage.jsx'
+import ConsumablesPage from './pages/consumables/ConsumablesPage.jsx'
 import CreateUser from './pages/users/CreateUser.jsx'
 import CreateSupplier from './pages/suppliers/CreateSupplier.jsx'
+import CreateConsumable from './pages/consumables/CreateConsumable.jsx'
 
 const router = createBrowserRouter([
   {
@@ -33,7 +34,13 @@ const router = createBrowserRouter([
           { path: "create", element: <CreateSupplier /> },
         ]
       },
-      { path: "/consumables", element: <ConsumablesPage /> },
+      { 
+        path: "/consumables", 
+        children: [
+          { path: "", element: <ConsumablesPage /> },
+          { path: "create", element: <CreateConsumable /> },
+        ]
+      },
       { 
         path: "/roles",
         children: [

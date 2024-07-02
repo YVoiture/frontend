@@ -86,7 +86,7 @@ const CarMap = () => {
                     <span className="relative inline-flex rounded-full h-3 w-3 bg-rose-500"></span>
                 </span>
             </div>
-            <MapContainer center={[43.6, 1.43]} zoom={13} className="h-96 w-96 rounded-md">
+            <MapContainer center={[43.6, 1.43]} zoom={5} className="h-96 w-96 rounded-md">
                 <TileLayer
                     url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                     attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
