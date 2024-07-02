@@ -31,7 +31,7 @@ const CarsPage = () => {
     return (
         <>
             <h1 className="text-2xl font-medium">Liste des voitures</h1>
-            <Table dataName="une voiture" columns={["Plaque d'immatriculation", "Marque", "Modèle", "Année"]} dataList={cars} />
+            <Table canCreate={false} columns={["Plaque d'immatriculation", "Marque", "Modèle", "Année"]} dataList={cars} />
         </>
     )
 }
