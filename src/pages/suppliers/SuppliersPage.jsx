@@ -1,40 +1,25 @@
-import { useEffect, useState } from "react";
-import Table from "../../components/Table";
+import ListPageLayout from "../../components/ListPageLayout";
+import useFetchData from "../../hooks/useFetchData";
 
-const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
+const SuppliersPage = () => {
+    const transformData = data => data.map(supplier => ({
+        name: supplier.name,
+        type: supplier.type,
+        address: supplier.adress,
+        email: supplier.email,
+        phone: supplier.number
+    }));
 
-const SupliersPage = () => {
-    const [suppliers, setSuppliers] = useState([]);
-
-    useEffect(() => {
-        const fetchSuppliers = async () => {
-            try {
-                const response = await fetch(`${BACKEND_URL}/suppliers`);
-                const data = await response.json();
-                
-                const filteredData = data.map(supplier => ({
-                    name: supplier.name,
-                    type: supplier.type,
-                    address: supplier.adress,
-                    email: supplier.email,
-                    phone: supplier.number
-                }));
-
-                setSuppliers(filteredData);
-            } catch (error) {
-                console.error('Error fetching suppliers:', error);
-            }
-        };
-
-        fetchSuppliers();
-    }, []);
+    const suppliers = useFetchData('suppliers', transformData);
 
     return (
-        <>
-            <h1 className="text-2xl font-medium">Liste des fournisseurs</h1>
-            <Table dataName="un fournisseur" columns={["Nom", "Type", "Adresse postale", "Adresse e-mail", "Numéro de téléphone"]} dataList={suppliers} />
-        </>
+        <ListPageLayout
+            title="Liste des fournisseurs"
+            dataName="un fournisseur"
+            columns={["Nom", "Type", "Adresse postale", "Adresse e-mail", "Numéro de téléphone"]}
+            dataList={suppliers}
+        />
     );
-}
+};
 
-export default SupliersPage;
+export default SuppliersPage;

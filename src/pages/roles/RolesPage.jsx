@@ -1,37 +1,22 @@
-import { useEffect, useState } from "react";
-import Table from "../../components/Table";
-
-const BACKEND_URL = import.meta.env.VITE_BACKEND_URL
+import ListPageLayout from "../../components/ListPageLayout";
+import useFetchData from "../../hooks/useFetchData";
 
 const RolesPage = () => {
-    const [roles, setRoles] = useState([]);
+    const transformData = data => data.map(role => ({
+        name: role.name,
+        position: role.position
+    }));
 
-    useEffect(() => {
-        const fetchRoles = async () => {
-            try {
-                const response = await fetch(`${BACKEND_URL}/roles`);
-                const data = await response.json();
-                
-                const filteredData = data.map(role => ({
-                    name: role.name,
-                    position: role.position
-                }));
-
-                setRoles(filteredData);
-            } catch (error) {
-                console.error('Error fetching roles:', error);
-            }
-        };
-
-        fetchRoles();
-    }, [])
+    const roles = useFetchData('roles', transformData);
 
     return (
-        <>
-            <h1 className="text-2xl font-medium">Liste des rôles</h1>
-            <Table dataName="un rôle" columns={["Nom", "Position"]} dataList={roles} />
-        </>
+        <ListPageLayout
+            title="Liste des rôles"
+            dataName="un rôle"
+            columns={["Nom", "Position"]}
+            dataList={roles}
+        />
     );
-}
+};
 
 export default RolesPage;

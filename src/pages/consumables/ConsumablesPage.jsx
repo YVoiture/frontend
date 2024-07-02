@@ -1,40 +1,25 @@
-import { useEffect, useState } from "react";
-import Table from "../../components/Table";
-
-const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
+import ListPageLayout from "../../components/ListPageLayout";
+import useFetchData from "../../hooks/useFetchData";
 
 const ConsumablesPage = () => {
-    const [consumables, setConsumables] = useState([]);
+    const transformData = data => data.map(consumable => ({
+        name: consumable.name,
+        serialNumber: consumable.serialNumber,
+        price: consumable.price + "€",
+        category: consumable.category,
+        quantity: consumable.quantity,
+    }));
 
-    useEffect(() => {
-        const fetchConsumables = async () => {
-            try {
-                const response = await fetch(`${BACKEND_URL}/consumables`);
-                const data = await response.json();
-
-                const filteredData = data.map(consumable => ({
-                    name: consumable.name,
-                    serialNumber: consumable.serialNumber,
-                    price: consumable.price + "€",
-                    category: consumable.category,
-                    quantity: consumable.quantity,
-                }));
-
-                setConsumables(filteredData);
-            } catch (error) {
-                console.error('Error fetching consumables:', error);
-            }
-        };
-
-        fetchConsumables();
-    }, []);
+    const consumables = useFetchData('consumables', transformData);
 
     return (
-        <>
-            <h1 className="text-2xl font-medium">Liste des consommables</h1>
-            <Table dataName="un consommable" columns={["Nom", "Numéro de série", "Prix", "Catégorie", "Quantité"]} dataList={consumables} />
-        </>
-    );
+        <ListPageLayout
+            title="Liste des consommables"
+            dataName="un consommable"
+            columns={["Nom", "Numéro de série", "Prix", "Catégorie", "Quantité"]}
+            dataList={consumables}
+        />
+    )
 }
 
 export default ConsumablesPage;
