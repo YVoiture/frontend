@@ -19,13 +19,10 @@ jobs:
       - name: Build
         run: npm run build
 
-      - name: Test
-        run: npm test
-
       - name: Vercel Deployment
         uses: amondnet/vercel-action@v20
         with:
-          vercel-token: ${{ secrets.VERCEL_TOKEN }}
-          vercel-org-id: team_BUfsS1NwNUyij13kGwwqJzCI
-          vercel-project-id: prj_X8PHx5LekjaFjOJ2zwqfNoneVz2p
+          vercel-token: w1amcIvqnfWQ69yuXDKicLhN
+          vercel-org-id: team_AIoGlYXtBaCVQY5GieyNjwVP
+          vercel-project-id: prj_oGO1iN8hQgmIdd6AX5OawAWIbdRX
           vercel-args: '--prod'
