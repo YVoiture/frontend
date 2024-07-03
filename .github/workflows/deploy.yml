@@ -22,7 +22,7 @@ jobs:
       - name: Vercel Deployment
         uses: amondnet/vercel-action@v20
         with:
-          vercel-token: w1amcIvqnfWQ69yuXDKicLhN
+          vercel-token: TzSvxbGKe8ASFi8uE87eN76H
           vercel-org-id: team_AIoGlYXtBaCVQY5GieyNjwVP
           vercel-project-id: prj_oGO1iN8hQgmIdd6AX5OawAWIbdRX
           vercel-args: '--prod'
