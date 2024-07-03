@@ -48,7 +48,7 @@ function Table({ canCreate, dataName, columns, dataList }) {
                                     dataList.map((item, index) => (
                                         <tr key={index} className="border-b dark:border-gray-700">
                                             {Object.values(item).map((value, subIndex) => (
-                                                <td key={subIndex} className="px-4 py-3">{value}</td>
+                                                <td key={subIndex} className="px-4 py-3">{value ? value : '-'}</td>
                                             ))}
                                         </tr>
                                     ))

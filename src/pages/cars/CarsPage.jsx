@@ -17,6 +17,7 @@ const CarsPage = () => {
             dataName="une voiture"
             columns={["Plaque d'immatriculation", "Marque", "Modèle", "Année"]}
             dataList={cars}
+            canCreate={false}
         />
     )
 }
