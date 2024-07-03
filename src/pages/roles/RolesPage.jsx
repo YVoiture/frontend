@@ -1,12 +1,12 @@
 import ListPageLayout from "../../components/ListPageLayout";
 import useFetchData from "../../hooks/useFetchData";
 
-const RolesPage = () => {
-    const transformData = data => data.map(role => ({
-        name: role.name,
-        position: role.position
-    }));
+const transformData = data => data.map(role => ({
+    name: role.name,
+    position: role.position
+}));
 
+const RolesPage = () => {
     const roles = useFetchData('roles', transformData);
 
     return (

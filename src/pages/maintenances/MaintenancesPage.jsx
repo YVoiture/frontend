@@ -1,13 +1,13 @@
 import ListPageLayout from "../../components/ListPageLayout";
 import useFetchData from "../../hooks/useFetchData";
 
-const MaintenancesPage = () => {
-    const transformData = data => data.map(maintenance => ({
-        startDate: maintenance.startDate,
-        endDate: maintenance.endDate,
-        type: maintenance.type,
-    }));
+const transformData = data => data.map(maintenance => ({
+    startDate: maintenance.startDate,
+    endDate: maintenance.endDate,
+    type: maintenance.type,
+}));
 
+const MaintenancesPage = () => {
     const maintenances = useFetchData('maintenance', transformData);
 
     return (

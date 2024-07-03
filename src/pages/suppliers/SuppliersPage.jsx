@@ -1,15 +1,15 @@
 import ListPageLayout from "../../components/ListPageLayout";
 import useFetchData from "../../hooks/useFetchData";
 
-const SuppliersPage = () => {
-    const transformData = data => data.map(supplier => ({
-        name: supplier.name,
-        type: supplier.type,
-        address: supplier.adress,
-        email: supplier.email,
-        phone: supplier.number
-    }));
+const transformData = data => data.map(supplier => ({
+    name: supplier.name,
+    type: supplier.type,
+    address: supplier.adress,
+    email: supplier.email,
+    phone: supplier.number
+}));
 
+const SuppliersPage = () => {
     const suppliers = useFetchData('suppliers', transformData);
 
     return (
