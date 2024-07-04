@@ -14,10 +14,10 @@ import MaintenancesPage from './pages/maintenances/MaintenancesPage.jsx'
 import ProfilePage from './pages/auth/ProfilePage.jsx'
 import SupliersPage from './pages/suppliers/SuppliersPage.jsx'
 import ConsumablesPage from './pages/consumables/ConsumablesPage.jsx'
-import CreateUser from './pages/users/CreateUser.jsx'
 import CreateSupplier from './pages/suppliers/CreateSupplier.jsx'
 import CreateConsumable from './pages/consumables/CreateConsumable.jsx'
 import CreateMaintenance from './pages/maintenances/CreateMaintenance.jsx'
+import CreateCar from './pages/cars/CreateCar.jsx'
 
 const router = createBrowserRouter([
   {
@@ -26,7 +26,13 @@ const router = createBrowserRouter([
     errorElement: <NotFound />,
     children: [
       { path: "/", element: <DashboardPage /> },
-      { path: "/cars", element: <CarsPage /> },
+      { 
+        path: "/cars", 
+        children: [
+          { path: "", element: <CarsPage /> },
+          { path: "create", element: <CreateCar /> },
+        ]
+      },
       { 
         path: "/maintenances",
         children: [
@@ -59,7 +65,6 @@ const router = createBrowserRouter([
         path: "/users",
         children: [
           { path: "", element: <UsersPage /> },
-          { path: "create", element: <CreateUser /> },
         ]
       },
       { path: "/profile", element: <ProfilePage /> }

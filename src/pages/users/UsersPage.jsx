@@ -17,6 +17,7 @@ const UsersPage = () => {
             dataName="un utilisateur"
             columns={["Nom", "Prénom", "Adresse e-mail", "Rôle"]}
             dataList={users}
+            canCreate={false}
         />
     )
 }
