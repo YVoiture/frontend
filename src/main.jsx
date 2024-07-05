@@ -18,6 +18,11 @@ import CreateSupplier from './pages/suppliers/CreateSupplier.jsx'
 import CreateConsumable from './pages/consumables/CreateConsumable.jsx'
 import CreateMaintenance from './pages/maintenances/CreateMaintenance.jsx'
 import CreateCar from './pages/cars/CreateCar.jsx'
+import EditRole from './pages/roles/EditRole.jsx'
+import EditCar from './pages/cars/EditCar.jsx'
+import EditMaintenance from './pages/maintenances/EditMaintenance.jsx'
+import EditSupplier from './pages/suppliers/EditSupplier.jsx'
+import EditConsumable from './pages/consumables/EditConsumable.jsx'
 
 const router = createBrowserRouter([
   {
@@ -31,6 +36,7 @@ const router = createBrowserRouter([
         children: [
           { path: "", element: <CarsPage /> },
           { path: "create", element: <CreateCar /> },
+          { path: "edit/:id", element: <EditCar /> },
         ]
       },
       { 
@@ -38,6 +44,7 @@ const router = createBrowserRouter([
         children: [
           { path: "", element: <MaintenancesPage /> },
           { path: "create", element: <CreateMaintenance /> },
+          { path: "edit/:id", element: <EditMaintenance /> },
         ]
       },
       { 
@@ -45,6 +52,7 @@ const router = createBrowserRouter([
         children: [
           { path: "", element: <SupliersPage /> },
           { path: "create", element: <CreateSupplier /> },
+          { path: "edit/:id", element: <EditSupplier /> },
         ]
       },
       { 
@@ -52,6 +60,7 @@ const router = createBrowserRouter([
         children: [
           { path: "", element: <ConsumablesPage /> },
           { path: "create", element: <CreateConsumable /> },
+          { path: "edit/:id", element: <EditConsumable /> },
         ]
       },
       { 
@@ -59,6 +68,7 @@ const router = createBrowserRouter([
         children: [
           { path: "", element: <RolesPage /> },
           { path: "create", element: <CreateRole />},
+          { path: "edit/:id", element: <EditRole /> },
         ]
       },
       { 

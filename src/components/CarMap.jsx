@@ -86,28 +86,80 @@ const CarMap = () => {
                     <span className="relative inline-flex rounded-full h-3 w-3 bg-rose-500"></span>
                 </span>
             </div>
-            <MapContainer center={[43.6, 1.43]} zoom={5} className="h-96 w-96 rounded-md">
-                <TileLayer
-                    url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-                    attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-                />
-                {carPositions.map((car, index) => (
-                    <Marker
-                        key={index}
-                        position={[car.lat, car.lon]}
-                        icon={myIcon}
-                    >
-                        <Popup>
-                            <div>
-                                <h3>{car.brand} {car.model} ({car.year})</h3>
-                                <p>Plaque: {car.plate}</p>
-                                <p>Vitesse: {car.speed.toFixed(2)} km/h</p>
-                                <p>Kilométrage: {car.mileage.toFixed(0)} km</p>
-                            </div>
-                        </Popup>
-                    </Marker>
-                ))}
-            </MapContainer>
+            <div className="flex gap-4">
+                <MapContainer center={[43.6, 1.43]} zoom={5} className="h-96 w-96 rounded-md">
+                    <TileLayer
+                        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                        attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                    />
+                    {carPositions.map((car, index) => (
+                        <Marker
+                            key={index}
+                            position={[car.lat, car.lon]}
+                            icon={myIcon}
+                        >
+                            <Popup>
+                                <div>
+                                    <h3>{car.brand} {car.model} ({car.year})</h3>
+                                    <p>Plaque: {car.plate}</p>
+                                    <p>Vitesse: {car.speed.toFixed(2)} km/h</p>
+                                    <p>Kilométrage: {car.mileage.toFixed(0)} km</p>
+                                </div>
+                            </Popup>
+                        </Marker>
+                    ))}
+                </MapContainer>
+                <div className="relative overflow-x-auto">
+                    <table className="w-full text-sm text-left text-gray-500 border">
+                        <thead className="text-xs text-gray-700 uppercase bg-gray-50">
+                            <tr>
+                                <th scope="col" className="px-6 py-3">
+                                    Marque
+                                </th>
+                                <th scope="col" className="px-6 py-3">
+                                    Modèle
+                                </th>
+                                <th scope="col" className="px-6 py-3">
+                                    Année
+                                </th>
+                                <th scope="col" className="px-6 py-3">
+                                    Plaque
+                                </th>
+                                <th scope="col" className="px-6 py-3">
+                                    Vitesse
+                                </th>
+                                <th scope="col" className="px-6 py-3">
+                                    Kilométrage
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {carPositions.map((car, index) => (
+                                <tr key={index} className="bg-white border-b">
+                                    <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
+                                        {car.brand}
+                                    </th>
+                                    <td className="px-6 py-4">
+                                        {car.model}
+                                    </td>
+                                    <td className="px-6 py-4">
+                                        {car.year}
+                                    </td>
+                                    <td className="px-6 py-4">
+                                        {car.plate}
+                                    </td>
+                                    <td className="px-6 py-4">
+                                        {car.speed.toFixed(2)} km/h
+                                    </td>
+                                    <td className="px-6 py-4">
+                                        {car.mileage.toFixed(2)} km
+                                    </td>
+                                </tr>
+                            ))}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </>
     );
 }

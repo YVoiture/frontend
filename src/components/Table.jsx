@@ -1,9 +1,10 @@
 import PropTypes from 'prop-types';
 import { Link, useLocation } from 'react-router-dom';
 
-function Table({ canCreate, dataName, columns, dataList }) {
+function Table({ canCreate, dataName, columns, dataList, onDelete }) {
     const location = useLocation();
     const createLink = `${location.pathname}/create`;
+    const editLink = `${location.pathname}/edit`;
 
     return (
         <section className="bg-gray-50 dark:bg-gray-900">
@@ -41,6 +42,7 @@ function Table({ canCreate, dataName, columns, dataList }) {
                                     {columns.map((column, index) => (
                                         <th key={index} scope="col" className="px-4 py-3">{column}</th>
                                     ))}
+                                    <th scope="col" className="px-4 py-3">Actions</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -50,6 +52,20 @@ function Table({ canCreate, dataName, columns, dataList }) {
                                             {Object.values(item).map((value, subIndex) => (
                                                 <td key={subIndex} className="px-4 py-3">{value ? value : '-'}</td>
                                             ))}
+                                            <td className="px-4 py-3 flex gap-4">
+                                                <Link 
+                                                    to={`${editLink}/${item.id}`}
+                                                    className="text-yellow-600 hover:bg-yellow-700 hover:text-white focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-2 py-1 focus:outline-none"
+                                                >
+                                                    Modifier
+                                                </Link>
+                                                <button 
+                                                    onClick={() => onDelete(item.id)}
+                                                    className="text-red-600 hover:bg-red-700 hover:text-white focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-2 py-1 focus:outline-none"
+                                                >
+                                                    Supprimer
+                                                </button>
+                                            </td>
                                         </tr>
                                     ))
                                 ) : (
